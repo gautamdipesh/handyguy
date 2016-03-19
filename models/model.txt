@@ -1,0 +1,3 @@
+use handyGuyDb;
+
+db.userInfo.insert({'username':'admin','password':'admin'});
