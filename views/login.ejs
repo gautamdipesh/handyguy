@@ -76,11 +76,13 @@
 
         <div id="login">
           <h1>Sign In</h1>
-
+          <% if (message.length > 0) { %>
+        <div class="alert alert-danger" style="background-color: white;"><%= message %></div>
+          <% } %>
           <form action="/login" method="post">
             <div class="field-wrap">
 
-            <input name="username" type="email" placeholder="Email *" class="req" required autocomplete="on"/>
+            <input name="email" type="email" placeholder="Email *" class="req" required autocomplete="on"/>
           </div>
 
           <div class="field-wrap">

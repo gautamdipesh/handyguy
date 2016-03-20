@@ -1,20 +1,13 @@
-var express = require('express');
-var router = express.Router();
-var UserDetails = require('../models/schemas').userDetails;
+// =====================================
+// PROFILE SECTION =====================
+// =====================================
+// we will want this protected so you have to be logged in to visit
+// we will use route middleware to verify this (the isLoggedIn function)
+module.exports = function(isLoggedIn, app, passport) {
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
-
-router.get('/all', function(req, res, next){
-	var users  = [];
-	UserDetails.find(function(err, usrs){
-		if(err) return console.error(err);
-		res.send(usrs);
-	});
-	
-});
-
-
-module.exports = router;
+  app.get('/profile', isLoggedIn, function(req, res) {
+        res.render('profile.ejs', {
+            user : req.user // get the user out of session and pass to template
+        });
+    });
+};
