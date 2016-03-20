@@ -33,7 +33,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public',express.static(path.join(__dirname, 'public')));
+console.log(path.join(__dirname,'public'));
 
 app.use('/', routes);
 app.use('/users', users);
@@ -57,13 +58,13 @@ passport.deserializeUser(function(user, done) {
 });
 
 
-passport.use(new localStrategy(function(username, password, done) {
+passport.use(new localStrategy(function(email, password, done) {
   process.nextTick(function() {
     console.log("I am here with athe user ");
-    console.log(username);
+    console.log(email);
     console.log(password);
     UserDetails.findOne({
-      'username' : username,
+      'email' : email,
     }, function(err, user){
       if(err){
         return done(err);

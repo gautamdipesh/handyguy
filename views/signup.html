@@ -1,26 +1,75 @@
-<html>
-  <body>
-    <form action="/signup" method="post">
-      <div>
-        <label>First Name:</label>
-        <input type="text" name="first_name" />
-        <br/>
-      </div>
-      <div>
-        <label>Last Name:</label>
-        <input type="text" name="last_name" />
-      </div>
-       <div>
-        <label>Email:</label>
-        <input type="email" name="username" />
-      </div>
-       <div>
-        <label>Password:</label>
-        <input type="password" name="password" />
-      </div>
-      <div>
-        <input type="submit" value="Submit" />
-      </div>
-    </form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sign In</title>
+
+    <!-- Bootstrap Core CSS
+    <link href="css/bootstrap.min.css" rel="stylesheet">-->
+
+    <!-- Google Font -->
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+
+    <!-- custom CSS -->
+     <link rel="stylesheet" href="/public/css/pluggins/normalize.css">
+        <link rel="stylesheet" href="/public/css/pluggins/login.css">
+
+    <!-- Custom Fonts
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+  <body data-vide-bg="video/ocean">
+
+    <div class="form">
+      <div class="tab-content">
+         <div id="signup">
+          <h1>Sign Up for Free</h1>
+
+          <form action="/signup" method="post">
+
+          <div class="top-row">
+            <div class="field-wrap">
+              <input type="text" name="first_name" placeholder="First Name *" class="req" required autocomplete="on" />
+            </div>
+
+            <div class="field-wrap">
+              <input type="text" name="last_name" placeholder="Last Name *" class="req" required autocomplete="on"/>
+            </div>
+          </div>
+
+          <div class="field-wrap">
+
+            <input type="email" name="email" placeholder="Email *" class="req" required autocomplete="on"/>
+          </div>
+
+          <div class="field-wrap">
+            <input type="password" name="password" placeholder="Password *" class="req" required autocomplete="off"/>
+          </div>
+
+          <button type="submit" value="submit" class="button button-block"/>Get Started</button>
+
+          </form>
+
+        </div>
+
+        <script src='https://code.jquery.com/jquery-2.2.2.min.js'></script>
+        <script src="public/js/pluggins/handy.js"></script>
+        <script src="public/js/pluggins/jquery.vide.js"></script>
+
   </body>
 </html>
