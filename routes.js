@@ -4,7 +4,7 @@ module.exports = function(app, passport) {
     // Define all your routes here ========
     // =====================================
     var routes = [
-        'index', 'login', 'profile'
+        'index', 'login', 'profile', 'dashboard'
     ];
 
     routes.forEach(function(value, key){
