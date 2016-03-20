@@ -29,10 +29,6 @@ app.use(bodyParser());
 //set up ejs for the view engine
 app.set('view engine', 'ejs');
 
-// view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
-
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(session({ secret: 'ilovescotchscotchyscotchscotch' }));
@@ -46,20 +42,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash()); // use connect-flash for flash messages stored in session
 
-// app.use(logger('dev'));
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(cookieParser());
 app.use('/public',express.static(path.join(__dirname, 'public')));
 // console.log(path.join(__dirname,'public'));
 
-// app.use('/', routes);
-// app.use('/users', users);
-// app.use('/login', login);
-// app.use('/signup', signup);
-
 require('./routes')(app, passport);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -67,8 +53,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
-
 
 // error handlers
 
