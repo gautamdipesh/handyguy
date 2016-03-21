@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="handy">
+<head>
+   <% include ./partials/head %>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+</head>
+
+<body>
+  <div id="wrapper">
+    <% include ./partials/navbar %>
+      <div class="container" ng-controller="handyService">
+      	<input ng-model="fieldValue.serviceName" type="text" name="serviceName" value="fieldValue.serviceName" placeholder="Name of Service">
+      	<input type="text" ng-model="fieldValue.serviceAmount" name="serviceAmount" value="fieldValue.serviceAmount" placeholder="Amount for Services">
+      
+      	<button ng-click="addService(fieldValue.serviceName,fieldValue.serviceAmount)"> Add More</button>
+      	<button ng-click="saveService()"> Save</button>
+      	<div class="display-area">
+	      	<div ng-repeat="service in services">
+	      		<p>{{service.name}} {{service.amount}} </p>
+	      	</div>
+      	</div>
+      </div>
+  </div>
+  <script src="/public/js/pluggins/handyangular.js"></script>
+</body>

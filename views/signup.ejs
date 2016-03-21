@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sign In</title>
+    <title>Sign Up</title>
 
     <!-- Bootstrap Core CSS
     <link href="css/bootstrap.min.css" rel="stylesheet">-->
@@ -33,13 +33,15 @@
 
 </head>
 
-  <body data-vide-bg="video/ocean">
+  <body data-vide-bg="/public/video/ocean">
 
     <div class="form">
       <div class="tab-content">
          <div id="signup">
           <h1>Sign Up for Free</h1>
-
+          <% if (message.length > 0) { %>
+        <div class="alert alert-danger" style="background-color: white;"><%= message %></div>
+          <% } %>
           <form action="/signup" method="post">
 
           <div class="top-row">
