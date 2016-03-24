@@ -10,87 +10,86 @@
     <div id="page-wrapper">
             <div class="container jumbotron">
               <h2 class="text-center">Create User Profile</h2>
-            <form role="form" action="/businessprofile" method="post" class="form-horizontal col-lg-12">
+            <form id="business_profile" role="form" action="/businessprofile" method="post" class="form-horizontal col-lg-12" data-toggle="validator"enctype="multipart/form-data">
             <fieldset>
                 <!-- Address form -->
                 <legend>Business Information</legend>
                 <!-- Business Name input-->
                 <div class="form-group">
-                    <label class="control-label col-md-2">Business Name</label>
+                    <label for="business_name" class="control-label col-md-2">Business Name</label>
                     <div class="col-md-10">
-                        <input id="business-name" name="business_name" type="text"
-                        class="form-control">
+                        <input id="business_name" name="business_name" type="text"
+                        class="form-control" required>
                         <p class="help-block">Full Name of the Business</p>
                     </div>
                 </div>
                 <!-- Phone input-->
                 <div class="form-group">
-                    <label class="control-label col-md-2">Telephone Number</label>
+                    <label for="business_tel" class="control-label col-md-2">Telephone Number</label>
                     <div class="col-md-10">
-                        <input id="business-tel-num" name="business_tel" type="tel"
-                        class="form-control">
+                        <input id="business_tel" name="business_tel" type="tel"
+                        class="form-control" required>
                         <p class="help-block">Telephone number with area code</p>
                     </div>
                 </div>
 
                 <!-- email input-->
                 <div class="form-group">
-                    <label class="control-label col-md-2">Email</label>
+                    <label for="business_email" class="control-label col-md-2">Email</label>
                     <div class="col-md-10">
-                        <input id="business-email" name="business_email" type="email"
-                        class="form-control">
+                        <input id="business_email" name="business_email" type="email" class="form-control" required>
                         <p class="help-block">email@email.com</p>
                     </div>
                 </div>
                 <!-- address-line1 input-->
                 <div class="form-group">
-                    <label class="control-label col-md-2">Address Line 1</label>
+                    <label for="business_add1" class="control-label col-md-2">Address Line 1</label>
                     <div class="col-md-10">
-                        <input id="address-line1" name="business_add1" type="text"
-                        class="form-control">
+                        <input id="business_add1" name="business_add1" type="text"
+                        class="form-control" required>
                         <p class="help-block">Street address, P.O. box</p>
                     </div>
                 </div>
                 <!-- address-line2 input-->
                 <div class="form-group">
-                    <label class="control-label col-md-2">Address Line 2</label>
+                    <label for="business_add2" class="control-label col-md-2">Address Line 2</label>
                     <div class="col-md-10">
-                        <input id="address-line2" name="business_add2" type="text"
+                        <input id="business_add2" name="business_add2" type="text"
                         class="form-control">
                         <p class="help-block">Apartment, suite , unit, building, floor, etc.</p>
                     </div>
                 </div>
                 <!-- city input-->
                 <div class="form-group">
-                    <label class="control-label col-md-2">City</label>
+                    <label for="business_city"class="control-label col-md-2">City</label>
                     <div class="col-md-10">
-                        <input id="city" name="business_city" type="text" class="form-control">
+                        <input id="business_city" name="business_city" type="text" class="form-control" required>
                         <p class="help-block">City/Town</p>
                     </div>
                 </div>
-                <!-- region input-->
+                <!-- Region input-->
                 <div class="form-group">
-                    <label class="control-label col-md-2">State</label>
+                    <label for="business_state" class="control-label col-md-2">State</label>
                     <div class="col-md-10">
-                        <input id="region" name="business_state" type="text"
-                        class="form-control">
+                        <input id="business_state" name="business_state" type="text"
+                        class="form-control" required>
 
                     </div>
                 </div>
                 <!-- postal-code input-->
                 <div class="form-group">
-                    <label class="control-label col-md-2">Zip / Postal Code</label>
+                    <label for="business_zip" class="control-label col-md-2">Zip Code</label>
                     <div class="col-md-10">
-                        <input id="postal-code" name="business_zip" type="text"
-                        class="form-control">
-
+                        <input id="business_zip" name="business_zip" type="text"
+                        class="form-control" required>
+                        <p class="help-block">Enter 5 Digit Zip Code</p>
                     </div>
                 </div>
                 <!-- country select -->
                 <div class="form-group">
-                    <label class="control-label col-md-2">Country</label>
+                    <label for="business_country" class="control-label col-md-2">Country</label>
                     <div class="col-md-10">
-                        <select id="country" name="business_country" class="form-control">
+                        <select id="business_country" name="business_country" class="form-control">
                             <option value="AF">Afghanistan</option>
                             <option value="AL">Albania</option>
                             <option value="DZ">Algeria</option>
@@ -333,20 +332,27 @@
                         </select>
                     </div>
                 </div>
-                  <p class="help-block"></p>
+               
                 <!-- CompanyLogo input-->
-                <div class="control-group">
-                <div class=" col-md-10 col-md-offset-2">
-                    <label class="control-label col-md-2" >Upload Company Logo</label>
-                            <input type="file" name="business_logo">
+                <div class="form-group">
+                    <label for="business_logo" class="control-label col-md-2">Upload Logo</label>
+                    <div class="col-md-10">
+                      <input type="file" class="form-control" id="business_logo" name="business_logo" size="40">
+                      <div class="input-group">
+                        <input type="text" readonly="" class="form-control" placeholder="Browse..">
+                          <span class="input-group-btn input-group-sm">
+                            <button type="button" class="btn btn-fab btn-fab-mini">
+                              <i class="material-icons">attach_file</i>
+                            </button>
+                          </span>
+                      </div>
+                    </div>
                 </div>
-              </div>
-                    <p class="help-block"></p>
-
+              
                   <div class="form-group">
                     <div class="col-md-10 col-md-offset-2">
                       <button type="cancel" class="btn btn-raised btn-warning">Cancel</button>
-                      <button type="submit" value="submit" class="btn btn-raised btn-success">Save</button>
+                      <button id="submit_btn" type="submit" value="submit" class="btn btn-raised btn-success">Save</button>
                     </div>
                   </div>
             </div>

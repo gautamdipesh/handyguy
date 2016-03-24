@@ -6,20 +6,60 @@
 </head>
 
 <body>
-  <div id="wrapper">
+<div id="wrapper">
     <% include ./partials/navbar %>
-      <div class="container" ng-controller="handyService">
-      	<input ng-model="fieldValue.serviceName" type="text" name="serviceName" value="fieldValue.serviceName" placeholder="Name of Service">
-      	<input type="text" ng-model="fieldValue.serviceAmount" name="serviceAmount" value="fieldValue.serviceAmount" placeholder="Amount for Services">
-      
-      	<button ng-click="addService(fieldValue.serviceName,fieldValue.serviceAmount)"> Add More</button>
-      	<button ng-click="saveService()"> Save</button>
-      	<div class="display-area">
-	      	<div ng-repeat="service in services">
-	      		<p>{{service.name}} {{service.amount}} </p>
-	      	</div>
-      	</div>
-      </div>
-  </div>
+    <div id="page-wrapper">
+    <body ng-app="handy">
+  <div class="container jumbotron" ng-controller="handyController">
+    <div class="col-xs-12 col-sm-12 col-md-offset-3 col-md-5 col-lg-offset-3 col-lg-5">
+      <h2>Add Services</h2>
+      <!-- Form Starts Here -->
+      <form class="form-horizontal" data-toggle="validator">
+        <fieldset>
+          <div class="form-group">
+            <label for="serviceName" class="col-md-3 control-label">Name of Service</label>
+            <div class="col-md-9">
+              <input ng-model="fieldValue.serviceName" type="text" size="50" name="serviceName" value="fieldValue.serviceName" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3" for="serviceAmount">Amount</label>
+            <div class="input-group">
+              <span class="input-group-addon">$</span>
+              <input type="number" class="form-control" ng-model="fieldValue.serviceAmount" name="serviceAmount" value="fieldValue.serviceAmount"class="form-control">
+              <span class="input-group-btn">
+                  <button class="btn btn-primary" ng-click="addService(fieldValue.serviceName,fieldValue.serviceAmount)" type="button"><span
+                  class="glyphicon glyphicon-plus"></span>Add More</button>
+                  <button class="btn btn-lg btn-raised btn-success" ng-click="saveService()" type="button">Save</button>
+              </span>
+            </div>
+          </div>
+          </fieldset>
+      </form>
+      </hr>
+
+      <!-- service List Starts Here -->
+      <ul class="list-group" ng-show="services.length > 0">
+        <li class="list-group-item service" ng-repeat="service in services">
+          <p class="lead">
+            {{service.name}}<span> : $<span>
+            {{service.amount}} </p>
+          <div>
+            <span class="pull-right">
+              <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil" 
+                ng-click="editService($index)"></span></button>
+              <button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove" 
+                ng-click="deleteService($index)"></span></button>
+            </span>
+          </div>
+        </li>
+        </hr>
+      </ul>
+      <!-- service List Ends Here -->
+    </div>
+    </div>
+</div>
+  <% include ./partials/scriptsloader %>
   <script src="/public/js/pluggins/handyangular.js"></script>
 </body>
+</html>

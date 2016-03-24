@@ -1,7 +1,9 @@
-angular.module('handy', [])
-.controller('handyService', function($scope, $http, $location){
-	$scope.fieldValue = {};
-	$scope.services = [];
+var app = angular.module('handy', []);
+app
+  .controller('handyController', ['$scope', function ($scope, $http, $location) {
+    $scope.fieldValue = {};
+    $scope.services = [];
+    $scope.editIndex = false;
 
 	$scope.addService = function(serviceName, serviceAmount){
 		console.log(serviceName);
@@ -11,7 +13,14 @@ angular.module('handy', [])
 			$scope.services.push({'name' : serviceName, 'amount' : serviceAmount})
 		}
 	}
-	$scope.saveService = function(){
+    $scope.editService = function (index) {
+      $scope.service = $scope.services[index].service;
+      $scope.editIndex = index;
+    }
+    $scope.deleteService = function (index) {
+      $scope.services.splice(index, 1);
+    }
+    $scope.saveService = function(){
 		$http.post('/saveServices', {
 			data : $scope.services
 		}).success(function (resp){
@@ -20,4 +29,5 @@ angular.module('handy', [])
 			}
 		});
 	}
-});
+
+  }])

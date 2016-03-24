@@ -1,26 +1,67 @@
-<!-- views/index.ejs -->
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Node Authentication</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
-    <style>
-        body        { padding-top:80px; }
-    </style>
+    <title>Welcome to Handy Guy Billing Buddy</title>
+    <!-- custom CSS
+    <link rel="stylesheet" href="/public/css/pluggins/login.css">-->
+   <% include ./partials/head %>
+
 </head>
-<body>
-<div class="container">
+<!-- LOGIN FORM -->
+<body data-vide-bg="/public/video/ocean">
+  <div id="wrapper">
+      <div class="container-fluid">
+            <div class="row vertical-offset-100">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
 
-    <div class="jumbotron text-center">
-        <h1><span class="fa fa-lock"></span> Node Authentication</h1>
+                        <form accept-charset="UTF-8" role="form" action="/login" method="post">
+                        <div class="row">
+                            <img src="/public/img/logo_full.png" class="img-responsive pull-right" alt="HandyGuy Logo" width="150" height= automatic > 
+                        </div>
+                    <fieldset>
+                        <div class="form-group">
+                            <legend class ="text-center"><h1>Sign In</h1></legend>
+                            <label for="inputEmail label-floating" class="col-md-2 control-label">Email</label>
+                      <div class="col-md-10">
+                        <input type="email" class="form-control" id="email" name="email" autocomplete="on">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputPassword label-floating" class="col-md-2 control-label">Password</label>
 
-        <p>Login or Register with:</p>
+                      <div class="col-md-10">
+                        <input type="password" class="form-control" id="password" name="password" autocomplete="on">
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <div class="togglebutton">
+                        <label>
+                            <input type="checkbox" name="remember" checked> Remember
+                        </label>
+                        <input class="btn btn-lg btn-success btn-block" type="submit" value="login">
+                        <p class="text-right"><a href="#">Forgot password?</a></p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group text-center">
+                        <p><a href="/signup" class="btn btn-primary btn-lg">Create new account for FREE</a></p>
+                    </div> 
+                    </fieldset>
+                    </form>
+                </div>
+          
+            </div> <!-- pannel -->
+            </div> <!-- col-offset -->
+        </div><!-- row -->
+    </div><!-- container -->
+  </div> <!-- wrapper -->
 
-        <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
-        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
-    </div>
 
-</div>
+<!-- Scripts -->
+<% include ./partials/scriptsloader %>
+<!-- HandyGuy Custom -->
+<script src="/public/js/pluggins/jquery.vide.js"></script>
 </body>
 </html>

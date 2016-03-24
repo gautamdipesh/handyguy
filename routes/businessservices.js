@@ -26,6 +26,6 @@ module.exports = function(isLoggedIn, app, passport) {
     	});
    	});
    	res.status(200).send('Success');
-   	
+   	res.redirect('/dashboard');
    });
 };

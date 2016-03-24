@@ -1,73 +1,122 @@
-//plugin bootstrap minus and plus
-//http://jsfiddle.net/laelitenetwork/puJ6G/
-$('.btn-number').click(function(e){
-    e.preventDefault();
-
-    fieldName = $(this).attr('data-field');
-    type      = $(this).attr('data-type');
-    var input = $("input[name='"+fieldName+"']");
-    var currentVal = parseInt(input.val());
-    if (!isNaN(currentVal)) {
-        if(type == 'minus') {
-
-            if(currentVal > input.attr('min')) {
-                input.val(currentVal - 1).change();
-            }
-            if(parseInt(input.val()) == input.attr('min')) {
-                $(this).attr('disabled', true);
-            }
-
-        } else if(type == 'plus') {
-
-            if(currentVal < input.attr('max')) {
-                input.val(currentVal + 1).change();
-            }
-            if(parseInt(input.val()) == input.attr('max')) {
-                $(this).attr('disabled', true);
-            }
-
+//File Upload validation
+$('#submit_btn').click(function(){
+      var file = $('input[type=file]#business_logo').val();
+      var exts = ['png','gif'];//extensions
+      //the file has any value?
+      if ( file ) {
+        // split file name at dot
+        var get_ext = file.split('.');
+        // reverse name to check extension
+        get_ext = get_ext.reverse();
+        // check file type is valid as given in 'exts' array
+        if ( $.inArray ( get_ext[0].toLowerCase(), exts ) > -1 ){
+        //Do Nothing
+        } else {
+          alert( 'Invalid file Extension for LOGO file!' );
         }
-    } else {
-        input.val(0);
-    }
-});
-$('.input-number').focusin(function(){
-   $(this).data('oldValue', $(this).val());
-});
-$('.input-number').change(function() {
-
-    minValue =  parseInt($(this).attr('min'));
-    maxValue =  parseInt($(this).attr('max'));
-    valueCurrent = parseInt($(this).val());
-
-    name = $(this).attr('name');
-    if(valueCurrent >= minValue) {
-        $(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
-    } else {
-        alert('Sorry, the minimum value was reached');
-        $(this).val($(this).data('oldValue'));
-    }
-    if(valueCurrent <= maxValue) {
-        $(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
-    } else {
-        alert('Sorry, the maximum value was reached');
-        $(this).val($(this).data('oldValue'));
-    }
-
-
-});
-$(".input-number").keydown(function (e) {
-        // Allow: backspace, delete, tab, escape, enter and .
-        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
-             // Allow: Ctrl+A
-            (e.keyCode == 65 && e.ctrlKey === true) ||
-             // Allow: home, end, left, right
-            (e.keyCode >= 35 && e.keyCode <= 39)) {
-                 // let it happen, don't do anything
-                 return;
-        }
-        // Ensure that it is a number and stop the keypress
-        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-            e.preventDefault();
-        }
+      }
     });
+//form validator
+$(document).ready(function() {
+    $('#new_order').bootstrapValidator({
+        // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            // first_name: {
+            //     validators: {
+            //             stringLength: {
+            //             min: 2,
+            //         },
+            //             notEmpty: {
+            //             message: 'Please supply your first name'
+            //         }
+            //     }
+            // },
+            //  last_name: {
+            //     validators: {
+            //          stringLength: {
+            //             min: 2,
+            //         },
+            //         notEmpty: {
+            //             message: 'Please supply your last name'
+            //         }
+            //     }
+            // },
+            // email: {
+            //     validators: {
+            //         notEmpty: {
+            //             message: 'Please supply your email address'
+            //         },
+            //         emailAddress: {
+            //             message: 'Please supply a valid email address'
+            //         }
+            //     }
+            // },
+            phone: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please supply your phone number'
+                    },
+                    phone: {
+                        country: 'US',
+                        message: 'Please supply a vaild phone number with area code'
+                    }
+                }
+            },
+            // address: {
+            //     validators: {
+            //          stringLength: {
+            //             min: 8,
+            //         },
+            //         notEmpty: {
+            //             message: 'Please supply your street address'
+            //         }
+            //     }
+            // },
+            // city: {
+            //     validators: {
+            //          stringLength: {
+            //             min: 4,
+            //         },
+            //         notEmpty: {
+            //             message: 'Please supply your city'
+            //         }
+            //     }
+            // },
+            // state: {
+            //     validators: {
+            //         notEmpty: {
+            //             message: 'Please select your state'
+            //         }
+            //     }
+            // },
+            // zip: {
+            //     validators: {
+            //         notEmpty: {
+            //             message: 'Please supply your zip code'
+            //         },
+            //         zipCode: {
+            //             country: 'US',
+            //             message: 'Please supply a vaild zip code'
+            //         }
+            //     }
+            // },
+            // comment: {
+            //     validators: {
+            //           stringLength: {
+            //             min: 10,
+            //             max: 200,
+            //             message:'Please enter at least 10 characters and no more than 200'
+            //         },
+            //         notEmpty: {
+            //             message: 'Please supply a description of your project'
+            //         }
+                    }
+                }
+            }
+        })
+});

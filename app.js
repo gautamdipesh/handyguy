@@ -8,11 +8,11 @@ var flash    = require('connect-flash');
 // loading express dependencies
 var morgan = require('morgan');
 var path = require('path');
-var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+
 
 //configuring database
 var configDB = require('./config/database');
@@ -25,6 +25,7 @@ require('./config/passport')(passport);
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser());
+
 
 //set up ejs for the view engine
 app.set('view engine', 'ejs');

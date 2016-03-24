@@ -14,8 +14,10 @@ This is formatting for the date picker
     border-radius: 32px;
     color: black;
   }
-
-
   .jumbotron{
       background-color:white;
   }
+/* Formatting for login/signup page*/
+.vertical-offset-100{
+    padding-top:100px;
+}
