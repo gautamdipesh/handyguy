@@ -1,11 +1,11 @@
 module.exports = function(app, passport) {
 
     // =====================================
-    // Define all your routes here ========
+    // all your routes here ========
     // =====================================
     var routes = [
         'index', 'login', 'profile', 'dashboard', 'businessprofile',
-        'businessservices', 'neworder', 'userprofile'
+        'businessservices', 'neworder', 'userprofile', 'myorders'
     ];
 
     routes.forEach(function(value, key){

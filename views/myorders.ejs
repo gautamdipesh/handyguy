@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+   <% include ./partials/head %>
+</head>
+
+<body>
+  <div id="wrapper">
+    <% include ./partials/navbar %>
+      <div class="container jumbotron">
+      		<table id="table" data-classes="table table-hover table-condensed"
+       		data-striped="true">
+			    <thead>
+			    <tr>
+			        <th data-field="<%= user._id %>">Date</th>
+			        <th data-field="Customer">Customer</th>
+			        <th data-field="Ammount">Amount</th>
+			        <th data-field="Status">Status</th>
+			    </tr>
+			    </thead>
+			</table>
+        </div><!-- container -->
+  </div> <!-- wrapper -->
+
+
+<!-- Scripts -->
+<% include ./partials/scriptsloader %>
+</body>
+</html>

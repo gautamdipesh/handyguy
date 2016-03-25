@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 //This is the schema for the Users(Small client Owners) to enter their 
-var clientProfile = mongoose.Schema({
+var ClientProfile = mongoose.Schema({
     user_id : String,
     client_name : String,
     client_tel : String,
@@ -18,4 +18,4 @@ var clientProfile = mongoose.Schema({
 
 
 // create the model for users and expose it to our app
-module.exports = mongoose.model('userclientInfo', clientProfile);
+module.exports = mongoose.model('userclientInfo', ClientProfile);
