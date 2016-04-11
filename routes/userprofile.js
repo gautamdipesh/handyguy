@@ -6,8 +6,13 @@
 module.exports = function(isLoggedIn, app, passport) {
 
   app.get('/userprofile', isLoggedIn, function(req, res) {
-        res.render('userprofile.ejs', {
-            user : req.user // get the user out of session and pass to template
-        });
+        
+        businessprofile.find({}, function (err, docs){
+        	if (err) throw (err);
+        	else res.render('userprofile.ejs', {
+            businessprofile : req.businessprofile // get the user out of session and pass to template
+        	});
+        	});
+      
     });
 };

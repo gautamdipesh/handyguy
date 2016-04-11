@@ -7,13 +7,13 @@ var NewOrder = require ('../models/neworderschema.js');
 
 module.exports = function(isLoggedIn, app, passport) {
 
-  app.get('/neworder', isLoggedIn, function(req, res) {
-        res.render('neworder.ejs', {
+  app.get('/orderdetails', isLoggedIn, function(req, res) {
+        res.render('orderdetails.ejs', {
             user : req.user // get the user out of session and pass to template
         });
     });
-  app.post('/neworder', isLoggedIn, function(req, res){
-  	var bs = new clientProfile();
+  app.post('/orderdetails', isLoggedIn, function(req, res){
+  	var bs = new orderdetails();
 
   	//setting attributes
   	bs.user_id = req.user._id;
@@ -31,6 +31,6 @@ module.exports = function(isLoggedIn, app, passport) {
     	if (err)
                         throw err;
     });
-    res.redirect('/clientservices');
+    res.redirect('/');
   });
 };

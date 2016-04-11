@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title></title>
+    <title>My Dashboard</title>
    <% include ./partials/head %>
 </head>
 
@@ -10,6 +10,7 @@
     <% include ./partials/navbar %>
       <div class="container">
       <div class="jumbotron">
+      <h2 class="text-center"> <i class="material-icons orange600">dashboard</i> Dashboard <i class="material-icons orange600">dashboard</i></h2>
         <div class="row">
               <div class="col-lg-12 col-md-6">
                   <a href="/neworder">
@@ -20,7 +21,7 @@
                                   <i class="fa fa-user-plus fa-4x"></i>
                               </div>
                               <div class="col-xs-9 text-right">
-                                  <h2>New Work Order</h2>
+                                  <h2>New Order</h2>
                               </div>
                           </div>
                       </div>
@@ -28,7 +29,7 @@
                   </a>
               </div>
               <div class="col-lg-12 col-md-6">
-                  <a href="Completed_Orders.html">
+                  <a href="/myorders">
                   <div class="panel panel-warning">
                       <div class="panel-heading">
                           <div class="row">
@@ -36,7 +37,7 @@
                                   <i class="fa fa-tasks fa-4x"></i>
                               </div>
                               <div class="col-xs-9 text-right">
-                                  <h2>My Jobs</h2>
+                                  <h2>My Orders</h2>
                               </div>
                           </div>
                       </div>
@@ -44,6 +45,7 @@
                   </a>
               </div>
               <div class="col-lg-12 col-md-6">
+                  <a href="/mycalendar">
                   <div class="panel panel-info">
                       <div class="panel-heading">
                           <div class="row">

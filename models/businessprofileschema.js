@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 
 //This is the schema for the Users(Small Business Owners) to enter their 
-var BusinessProfile = mongoose.Schema({
-    user_id : String,
+var BusinessProfileSchema = mongoose.Schema({
+    _id : String,
     business_name : String,
     business_tel : String,
     business_email: String,
@@ -10,7 +10,7 @@ var BusinessProfile = mongoose.Schema({
     business_add2: String,
     business_city: String,
     business_state: String,
-    business_zip: { type: Number, min: 0, max: 99999 },
+    business_zip: Number,
     business_country: String,
     business_logo: String
     }
@@ -18,4 +18,4 @@ var BusinessProfile = mongoose.Schema({
 
 
 // create the model for users and expose it to our app
-module.exports = mongoose.model('userBusinessInfo', BusinessProfile);
+module.exports = mongoose.model('BusinessProfile', BusinessProfileSchema);

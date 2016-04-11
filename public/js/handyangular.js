@@ -1,7 +1,7 @@
 var app = angular.module('handy', []);
-app
-  .controller('handyController', ['$scope', function ($scope, $http, $location) {
-    $scope.fieldValue = {};
+app.controller('handyController', ['$scope', function ($scope, $http, $location) {
+    
+   	$scope.fieldValue = {};
     $scope.services = [];
     $scope.editIndex = false;
 
@@ -20,14 +20,23 @@ app
     $scope.deleteService = function (index) {
       $scope.services.splice(index, 1);
     }
-    $scope.saveService = function(){
-		$http.post('/saveServices', {
-			data : $scope.services
-		}).success(function (resp){
-			if(resp == 'Success'){
-				window.location = '/dashboard';
-			}
-		});
-	}
+     $scope.saveService = function() {
+        $http.post('/dashboard',$scope.fieldValue).
+        success(function(data) {
+            console.log("Services Saved Successfully");
+        }).error(function(data) {
+            console.error("Error Posting services");
+        })
+    }
 
-  }])
+ //    $scope.save = function(){
+	// 	$http.post('/businessservices', {
+	// 		data : $scope.services
+	// 	}).success(function (resp){
+	// 		if(resp == 'Success'){
+	// 			window.location = '/dashboard';
+	// 		}
+	// 	});
+	// }
+
+  }]);

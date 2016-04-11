@@ -12,14 +12,14 @@ module.exports = function(isLoggedIn, app, passport) {
             user : req.user // get the user out of session and pass to template
         });
     });
-   app.post('/saveServices', isLoggedIn, function(req, res) {
+   app.post('/businessservices', isLoggedIn, function(req, res) {
    	console.log(req.body.data);
    	req.body.data.forEach(function (value, key){
    		var ss = new BusinessServices();
    		ss.user_id = req.user._id;
   		ss.serviceName = value.name;
     	ss.serviceAmount = value.amount;
-    	ss.save(function(err, bs){
+    	ss.save(function(err, ss){
     		if(err){
     			res.status(400).send('Fail to save');
     		}

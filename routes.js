@@ -1,11 +1,21 @@
 module.exports = function(app, passport) {
 
     // =====================================
-    // all your routes here ========
+    // all my routes here ========
     // =====================================
     var routes = [
-        'index', 'login', 'profile', 'dashboard', 'businessprofile',
-        'businessservices', 'neworder', 'userprofile', 'myorders'
+        'index',
+        'login',
+        'profile', 
+        'dashboard', 
+        'businessprofile',
+        'businessservices', 
+        'neworder',
+        'orderdetails', 
+        'userprofile', 
+        'myorders',
+        'changepassword',
+        'receipt',
     ];
 
     routes.forEach(function(value, key){

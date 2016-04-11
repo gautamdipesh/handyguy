@@ -1,30 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title></title>
+    <title>My Orders</title>
    <% include ./partials/head %>
+ <!-- Scripts -->
+<% include ./partials/scriptsloader %>
+
+
+<!-- bootstrap widget theme -->
+<link rel="stylesheet" href="/public/css/pluggins/theme.bootstrap_2.css">
+
+<!-- pager plugin -->
+<link rel="stylesheet" href="/public/css/pluggins/jquery.tablesorter.pager.min.css">
+
 </head>
 
 <body>
   <div id="wrapper">
     <% include ./partials/navbar %>
       <div class="container jumbotron">
-      		<table id="table" data-classes="table table-hover table-condensed"
-       		data-striped="true">
-			    <thead>
-			    <tr>
-			        <th data-field="<%= user._id %>">Date</th>
-			        <th data-field="Customer">Customer</th>
-			        <th data-field="Ammount">Amount</th>
-			        <th data-field="Status">Status</th>
-			    </tr>
-			    </thead>
-			</table>
+
+			<table id="myTable" class="tablesorter">
+				  <thead>
+				    <tr>
+				      	<th>Date</th>
+				        <th>Customer</th>
+				        <th>Amount</th>
+				        <th class="filter-select filter-exact" data-placeholder="Pick Status">Status</th>
+				    </tr>
+				    <tr>
+				  </thead>
+				  <tfoot>
+					    <tr>
+					      <th colspan="7" class="ts-pager form-horizontal">
+					        <button type="button" class="btn first"><i class="icon-step-backward glyphicon glyphicon-step-backward"></i></button>
+					        <button type="button" class="btn prev"><i class="icon-arrow-left glyphicon glyphicon-backward"></i></button>
+					        <span class="pagedisplay"></span> <!-- this can be any element, including an input -->
+					        <button type="button" class="btn next"><i class="icon-arrow-right glyphicon glyphicon-forward"></i></button>
+					        <button type="button" class="btn last"><i class="icon-step-forward glyphicon glyphicon-step-forward"></i>
+					       	</button>
+
+					      </th>
+					    </tr>
+					  </tfoot>
+				  <tbody>
+				    <tr data-toggle="modal" data-target="#receipt">
+				      <td>11/13/2016</td>
+				      <td>James</td>
+				      <td>31.53</td>
+				      <td>Incomplete
+				      	
+				      </td>
+				    </tr>
+				    <tr data-toggle="modal" data-target="#receipt">
+				      <td>11/12/2015</td>
+				      <td>Steven</td>
+				      <td>31.53</td>
+				      <td>Incomplete
+				      	
+				      </td>
+				    </tr>
+				    <tr data-toggle="modal" data-target="#receipt">
+				      <td>11/11/2015</td>
+				      <td>Jorge</td>
+				      <td>36.53</td>
+				      <td>Incomplete
+				      	
+				      </td>
+				    </tr>
+				    <tr data-toggle="modal" data-target="#receipt">
+				      <td>11/10/2015</td>
+				      <td>James</td>
+				      <td>37.53</td>
+				      <td>Complete</td>
+				    </tr>
+				  </tbody>
+				</table> 
+				<div id="receipt" class="modal fade" role="dialog">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					        <h4 class="modal-title">Receipt #: 34522677W</h4>
+					      </div>
+					      <div class="modal-body">
+					        <div class="row">
+						        <!-- <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+						            <div class="row"> -->
+						                <div class="col-xs-6 col-sm-6 col-md-6">
+						                    <address>
+						                        <br>James's Car Wash</strong>
+						                        <br>
+						                        2135 Sunset Blvd
+						                        <br>
+						                        Los Angeles, CA 90026
+						                        <br>
+						                        <abbr title="Phone">P:</abbr> (213) 484-6829
+						                        <br>
+						                        Date: 1st November, 2013
+						                    </address>
+
+						                </div>
+						                <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+						                    <a href="/dashboard" class="thumbnail">
+						                        <img src="/public/img/clientlogos/mockup.png" alt="logo">
+						                    </a>
+						                </div>
+						            </div>
+						            <div class="row">
+						                <div class="text-center">
+						                    <h1>Receipt</h1>
+						                </div>
+
+						                <table class="table table-hover">
+						                    <thead>
+						                        <tr>
+						                            <th>Service</th>
+						                            <th>#</th>
+						                            <th class="text-center">Price</th>
+						                            <th class="text-center">Total</th>
+						                        </tr>
+						                    </thead>
+						                    <tbody>
+						                        <tr>
+						                            <td class="col-md-9"><em>Premium Car Wash</em>
+						                            <td class="col-md-1" style="text-align: center"> 2 </td>
+						                            <td class="col-md-1 text-center">$13</td>
+						                            <td class="col-md-1 text-center">$26</td>
+						                        </tr>
+						                        <tr>
+						                            <td class="col-md-9"><em>Tire Cleaning</em></td>
+						                            <td class="col-md-1" style="text-align: center"> 1 </td>
+						                            <td class="col-md-1 text-center">$8</td>
+						                            <td class="col-md-1 text-center">$8</td>
+						                        </tr>
+						                        <tr>
+						                            <td class="col-md-9"><em>Waxing Interior</em>
+						                            <td class="col-md-1" style="text-align: center"> 3 </td>
+						                            <td class="col-md-1 text-center">$16</td>
+						                            <td class="col-md-1 text-center">$48</td>
+						                        <tr>
+						                            <td>   </td>
+						                            <td>   </td>
+						                            <td class="text-right">
+						                            <p>
+						                                <strong>Subtotal: </strong>
+						                            </p>
+						                            <p>
+						                                <strong>Tax: </strong>
+						                            </p></td>
+						                            <td class="text-center">
+						                            <p>
+						                                <strong>$6.94</strong>
+						                            </p>
+						                            <p>
+						                                <strong>$6.94</strong>
+						                            </p></td>
+						                        </tr>
+						                        <tr>
+						                            <td>   </td>
+						                            <td>   </td>
+						                            <td class="text-right"><h4><strong>Total: </strong></h4></td>
+						                            <td class="text-center text-danger"><h4><strong>$31.53</strong></h4></td>
+						                        </tr>
+						                    </tbody>
+						                </table>
+						        </div>
+						    </div>
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					        <button type="button" class="btn btn-primary">Print</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+
+
         </div><!-- container -->
   </div> <!-- wrapper -->
 
 
 <!-- Scripts -->
 <% include ./partials/scriptsloader %>
+
+<!-- tablesorter plugin -->
+<script src="/public/js/pluggins/jquery.tablesorter.min.js"></script>
+
+<!-- tablesorter widget file - loaded after the plugin -->
+<script src="/public/js/pluggins/jquery.tablesorter.widgets.min.js"></script>
+
+<script src="/public/js/pluggins/jquery.tablesorter.pager.js"></script>
+<script src="/public/js/pluggins/tablesorter.js"></script>
+
 </body>
 </html>

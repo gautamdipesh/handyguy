@@ -30,15 +30,41 @@
               <span class="input-group-btn">
                   <button class="btn btn-primary" ng-click="addService(fieldValue.serviceName,fieldValue.serviceAmount)" type="button"><span
                   class="glyphicon glyphicon-plus"></span>Add More</button>
-                  <button class="btn btn-lg btn-raised btn-success" ng-click="saveService()" type="button">Save</button>
+                  <button class="btn btn-lg btn-raised btn-success" ng-submit="saveService()" type="button">Save</button>
               </span>
             </div>
           </div>
           </fieldset>
       </form>
       </hr>
-
-      <!-- service List Starts Here -->
+       <div class="row bg-info">              
+            <table class=" table table-striped">
+                <thead>
+                  <tr>
+                    <th>Name of Service</th>
+                    <th>Amount</th>
+                    <th>Edit</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="service in services">
+                    <td>{{service.name}}</td>
+                    <td>{{service.amount}}</td>
+                    <td>
+                      <div>
+                          <span>
+                            <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil" 
+                              ng-click="editService($index)"></span></button>
+                            <button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove" 
+                              ng-click="deleteService($index)"></span></button>
+                          </span>
+                        </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table> 
+          </div>
+      <!-- service List Starts Here 
       <ul class="list-group" ng-show="services.length > 0">
         <li class="list-group-item service" ng-repeat="service in services">
           <p class="lead">
@@ -55,11 +81,11 @@
         </li>
         </hr>
       </ul>
-      <!-- service List Ends Here -->
+      service List Ends Here -->
     </div>
     </div>
 </div>
   <% include ./partials/scriptsloader %>
-  <script src="/public/js/pluggins/handyangular.js"></script>
+  <script src="/public/js/handyangular.js"></script>
 </body>
 </html>

@@ -8,8 +8,175 @@
 <body>
   <div id="wrapper">
     <% include ./partials/navbar %>
-      <div class="container">
-      
+      <div class="container jumbotron">			
+          <div id="page-wrapper">
+                  <form role="form">
+                  <!-- Page Heading -->
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <h1 class="page-header">
+                             Job Details
+                          </h1>
+                      </div>
+                  </div>
+                  <!-- /.row -->
+                  <div class="form-group">
+                                  <div class="checkbox col-lg-4">
+                                      <label>
+                                          <input type="checkbox" value=""> Service 1
+                                      </label>
+                                      <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
+                                              <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                        </span>
+                                        <input type="text" name="quant[2]" class="form-control input-number" value="1" min="1" max="10">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                        </span>
+                                          <label class="sr-only" for="exampleInputAmount"></label>
+                                          <div class="input-group">
+                                            <div class="input-group-addon">$</div>
+                                            <input type="text" class="form-control" id="InputAmount1" placeholder="Amount each">
+                                            <div class="input-group-addon">.00</div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <p class="help-block"></p>
+                                  <div class="checkbox col-lg-4">
+                                      <label>
+                                          <input type="checkbox" value=""> Service 2
+                                      </label>
+                                      <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
+                                              <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                        </span>
+                                        <input type="text" name="quant[2]" class="form-control input-number" value="1" min="1" max="10">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                        </span>
+                                          <label class="sr-only" for="exampleInputAmount">Amount</label>
+                                          <div class="input-group">
+                                            <div class="input-group-addon">$</div>
+                                            <input type="text" class="form-control" id="InputAmount2" placeholder="Amount each">
+                                            <div class="input-group-addon">.00</div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <p class="help-block"></p>
+                                  <div class="checkbox col-lg-4">
+                                      <label>
+                                          <input type="checkbox" value=""> Service 3
+                                      </label>
+                                      <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
+                                              <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                        </span>
+                                        <input type="text" name="quant[2]" class="form-control input-number" value="1" min="1" max="10">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                        </span>
+                                          <label class="sr-only" for="exampleInputAmount">Amount</label>
+                                          <div class="input-group">
+                                            <div class="input-group-addon">$</div>
+                                            <input type="text" class="form-control" id="InputAmount3" placeholder="Amount each">
+                                            <div class="input-group-addon">10.00</div>
+                                          </div>
+                                      </div>
+                                  </div>
+
+                                      <p class="help-block"></p>
+                                              <hr>
+                                  <div class="checkbox col-lg-12">
+                                      <div class="form-group">
+                                          <h4>Additional Services Performed</h4>
+                                              <input class="form-control" placeholder="Service Name">
+                                          </div>
+                                      <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
+                                              <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                        </span>
+                                        <input type="text" name="quant[2]" class="form-control input-number" value="1" min="1" max="10">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                        </span>
+                                          <label class="sr-only" for="exampleInputAmount">Amount</label>
+                                          <div class="input-group">
+                                            <div class="input-group-addon">$</div>
+                                            <input type="text" class="form-control" id="InputAmount" placeholder="Amount each">
+                                            <div class="input-group-addon">.00</div>
+                                          </div>
+                                      </div>
+                                  </div>
+
+                      <hr>
+                                  <div class="form-group">
+                                              <h4>Notes</<h4>
+                                              <textarea class="form-control" rows="3"></textarea>
+                                  </div>
+
+                   <div ng-app="ui.bootstrap.demo" ng-controller="DatepickerDemoCtrl">
+
+                       <h4>Date of Service</h4>
+                       <div class="row form-group">
+                      <div class="col-md-6">
+                          <p class="input-group">
+                            <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                            <span class="input-group-btn">
+                              <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                          </p>
+                      </div>
+
+
+                      </div>
+
+                       <div class="form-group">
+                           <h4>Picture</h4>
+                      <input type="file" id="take-picture" accept="image/*">
+                  </p>
+                  <div class="form-group">
+                  <h4>Preview:</h4>
+                      <img src="about:blank" alt="" id="show-picture" class="img-thumbnail" width="304" height="236" >
+                    </div>
+
+                  <p id="error"></p>
+
+                      </div>
+                      </div>
+                      <div class="form-group form-actions">
+                        <div class="col-md-10 col-md-offset-2">
+                          <button type="cancel" class="btn btn-raised btn-warning">Cancel</button>
+                          <button type="submit" class="btn btn-raised btn-success">Save</button>
+                        </div>
+                      </div>
+
+              </div>
+          </div>
+          <!-- /#page-wrapper -->
+
+
+        </div><!-- /.row -->
+
+      </div>
+      </div>
+      </div>
+    </div>
         </div><!-- container -->
   </div> <!-- wrapper -->
 

@@ -14,6 +14,11 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var favicon = require('serve-favicon');
 
+//loading dependencies for upload of logo image
+var formidable = require('formidable');
+var util = require('util');
+var fs   = require('fs-extra');
+var qt   = require('quickthumb');
 
 //configuring database
 var configDB = require('./config/database');
@@ -25,21 +30,24 @@ require('./config/passport')(passport);
 //set up our express applicaiton
 app.use(morgan('dev'));
 app.use(cookieParser());
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
+// Use quickthumb
+app.use(qt.static(__dirname + '/'));
 
 //set up ejs for the view engine
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(session({ secret: 'ilovescotchscotchyscotchscotch' }));
-// app.use(session({ 
-//   secret: 'ilovescotchscotchyscotchscotch',
-//   proxy: true,
-//   resave: true,
-//   saveUninitialized: true }
-// ));
+
+app.use(session({ 
+  secret: 'dipeshgautam',
+  proxy: true,
+  resave: true,
+  saveUninitialized: true }
+));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash()); // use connect-flash for flash messages stored in session
