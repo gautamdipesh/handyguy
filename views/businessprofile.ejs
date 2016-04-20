@@ -19,7 +19,7 @@
                     <label for="business_name" class="control-label col-md-2">Business Name</label>
                     <div class="col-md-10">
                         <input id="business_name" name="business_name" type="text"
-                        class="form-control" required>
+                        class="form-control" value="<%= profile.business_name %>" required>
                         <p class="help-block">Full Name of the Business</p>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                 <div class="form-group">
                     <label for="business_tel" class="control-label col-md-2">Telephone Number</label>
                     <div class="col-md-10">
-                        <input id="business_tel" name="business_tel" type="tel"
+                        <input id="business_tel" name="business_tel" value="<%= profile.business_tel %>" type="tel"
                         class="form-control" required>
                         <p class="help-block">Telephone number with area code</p>
                     </div>

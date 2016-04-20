@@ -1,5 +1,5 @@
 var app = angular.module('handy', []);
-app.controller('handyController', ['$scope', function ($scope, $http, $location) {
+app.controller('handyController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
     
    	$scope.fieldValue = {};
     $scope.services = [];
@@ -13,20 +13,28 @@ app.controller('handyController', ['$scope', function ($scope, $http, $location)
 			$scope.services.push({'name' : serviceName, 'amount' : serviceAmount})
 		}
 	}
-    $scope.editService = function (index) {
+    
+  $scope.editService = function (index) {
       $scope.service = $scope.services[index].service;
       $scope.editIndex = index;
-    }
-    $scope.deleteService = function (index) {
+  }
+
+  $scope.deleteService = function (index) {
       $scope.services.splice(index, 1);
-    }
-     $scope.saveService = function() {
-        $http.post('/dashboard',$scope.fieldValue).
-        success(function(data) {
+  }
+     
+  $scope.saveService = function(evt) {
+        console.log(evt);
+        console.log($scope.fieldValue);
+        $http.post('/businessservices',{data : [$scope.fieldValue]})
+
+        .success(function(data) {
             console.log("Services Saved Successfully");
-        }).error(function(data) {
-            console.error("Error Posting services");
+            window.location = '/dashboard';
         })
+        .error(function(data) {
+            console.error("Error Posting services");
+        });
     }
 
  //    $scope.save = function(){

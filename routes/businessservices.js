@@ -17,8 +17,10 @@ module.exports = function(isLoggedIn, app, passport) {
    	req.body.data.forEach(function (value, key){
    		var ss = new BusinessServices();
    		ss.user_id = req.user._id;
-  		ss.serviceName = value.name;
-    	ss.serviceAmount = value.amount;
+  		ss.serviceName = value.serviceName;
+    	ss.serviceAmount = value.serviceAmount;
+      console.log("saving the service as");
+      console.log(ss);
     	ss.save(function(err, ss){
     		if(err){
     			res.status(400).send('Fail to save');
@@ -26,6 +28,6 @@ module.exports = function(isLoggedIn, app, passport) {
     	});
    	});
    	res.status(200).send('Success');
-   	res.redirect('/dashboard');
+   	//res.redirect('/dashboard');
    });
 };

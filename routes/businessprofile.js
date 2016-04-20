@@ -8,16 +8,27 @@ var BusinessProfile = require ('../models/businessprofileschema.js');
 module.exports = function(isLoggedIn, app, passport) {
 
   app.get('/businessprofile', isLoggedIn, function(req, res) {
-        res.render('businessprofile.ejs', {
-            user : req.user // get the user out of session and pass to template
+        
+        var profile = {};
+        BusinessProfile.findById(req.user.id, function(err, businessProfile) {
+         console.log(businessProfile);
+         res.render('businessprofile.ejs', {
+            user : req.user, // get the user out of session and pass to template
+            profile : businessProfile
+          });
         });
+        
+        // res.render('businessprofile.ejs', {
+        //     user : req.user, // get the user out of session and pass to template
+        //     profile : profile
+        // });
     });
 
   app.post('/businessprofile', isLoggedIn, function(req, res){
   	var bs = new BusinessProfile();
-
   	//setting attributes
-  	bs._id = req.users._id;
+  	bs._id = req.user._id;
+    console.log(req.user._id);
   	bs.business_name = req.body.business_name;
     bs.business_tel = req.body.business_tel;
     bs.business_email = req.body.business_email;
