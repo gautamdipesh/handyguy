@@ -10,6 +10,7 @@ var morgan = require('morgan');
 var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var multer = require('multer');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var favicon = require('serve-favicon');
