@@ -36,6 +36,6 @@ module.exports = function(isLoggedIn, app, passport) {
     	if (err)
         throw err;
     });
-    res.redirect('/dashboard');
+    res.redirect('/orderdetails');
   });
 };
