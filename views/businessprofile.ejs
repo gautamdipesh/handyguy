@@ -37,7 +37,7 @@
                 <div class="form-group">
                     <label for="business_email" class="control-label col-md-2">Email</label>
                     <div class="col-md-10">
-                        <input id="business_email" name="business_email" type="email" class="form-control" required>
+                        <input id="business_email" name="business_email" value="<%= profile.business_email %>" type="email" class="form-control" required>
                         <p class="help-block">email@email.com</p>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                 <div class="form-group">
                     <label for="business_add1" class="control-label col-md-2">Address Line 1</label>
                     <div class="col-md-10">
-                        <input id="business_add1" name="business_add1" type="text"
+                        <input id="business_add1" name="business_add1" value="<%= profile.business_add1 %>" type="text"
                         class="form-control" required>
                         <p class="help-block">Street address, P.O. box</p>
                     </div>
@@ -54,7 +54,7 @@
                 <div class="form-group">
                     <label for="business_add2" class="control-label col-md-2">Address Line 2</label>
                     <div class="col-md-10">
-                        <input id="business_add2" name="business_add2" type="text"
+                        <input id="business_add2" name="business_add2" value="<%= profile.business_add2 %>" type="text"
                         class="form-control">
                         <p class="help-block">Apartment, suite , unit, building, floor, etc.</p>
                     </div>
@@ -63,7 +63,7 @@
                 <div class="form-group">
                     <label for="business_city"class="control-label col-md-2">City</label>
                     <div class="col-md-10">
-                        <input id="business_city" name="business_city" type="text" class="form-control" required>
+                        <input id="business_city" name="business_city" value="<%= profile.business_city %>" type="text" class="form-control" required>
                         <p class="help-block">City/Town</p>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                 <div class="form-group">
                     <label for="business_state" class="control-label col-md-2">State</label>
                     <div class="col-md-10">
-                        <input id="business_state" name="business_state" type="text"
+                        <input id="business_state" name="business_state" value="<%= profile.business_state %>" type="text"
                         class="form-control" required>
 
                     </div>
@@ -80,7 +80,7 @@
                 <div class="form-group">
                     <label for="business_zip" class="control-label col-md-2">Zip Code</label>
                     <div class="col-md-10">
-                        <input id="business_zip" name="business_zip" type="text"
+                        <input id="business_zip" name="business_zip" value="<%= profile.business_zip %>" type="text"
                         class="form-control" required>
                         <p class="help-block">Enter 5 Digit Zip Code</p>
                     </div>
@@ -89,7 +89,7 @@
                 <div class="form-group">
                     <label for="business_country" class="control-label col-md-2">Country</label>
                     <div class="col-md-10">
-                        <select id="business_country" name="business_country" class="form-control">
+                        <select id="business_country" value="<%= profile.business_country %>" name="business_country" class="form-control">
                             <option value="AF">Afghanistan</option>
                             <option value="AL">Albania</option>
                             <option value="DZ">Algeria</option>
@@ -337,7 +337,7 @@
                 <div class="form-group">
                     <label for="business_logo" class="control-label col-md-2">Upload Logo</label>
                     <div class="col-md-10">
-                      <input type="file" class="form-control" id="business_logo" name="business_logo" size="40">
+                      <input type="file" class="form-control" id="business_logo" name="business_logo" value="<%= profile.business_logo %>" size="40">
                       <div class="input-group">
                         <input type="text" readonly="" class="form-control" placeholder="Browse..">
                           <span class="input-group-btn input-group-sm">
