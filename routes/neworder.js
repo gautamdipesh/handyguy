@@ -12,11 +12,13 @@ module.exports = function(isLoggedIn, app, passport) {
             user : req.user // get the user out of session and pass to template
         });
     });
+
   app.post('/neworder', isLoggedIn, function(req, res){
-  	var bs = new clientProfile();
+    
+  	var bs = new NewOrder();
 
   	//setting attributes
-  	bs.user_id = req.user._id;
+  	bs.user_id = req.user.id;
   	bs.client_name = req.body.client_name;
     bs.client_tel = req.body.client_tel;
     bs.client_email = req.body.client_email;
@@ -27,10 +29,13 @@ module.exports = function(isLoggedIn, app, passport) {
     bs.client_zip = req.body.client_zip;
     bs.client_country = req.body.client_country;
 
-    bs.save(function(err, clientProfile){
+    console.log("bs is ");
+    console.log(bs);
+
+    bs.save(function(err, bs){
     	if (err)
-                        throw err;
+        throw err;
     });
-    res.redirect('/clientservices');
+    res.redirect('/dashboard');
   });
 };

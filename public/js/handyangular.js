@@ -10,7 +10,7 @@ app.controller('handyController', ['$scope', '$http', '$location', function ($sc
 		console.log(serviceAmount);
 		console.log($scope.fieldValue);
 		if (!angular.isUndefined(serviceName) && !angular.isUndefined(serviceAmount)){
-			$scope.services.push({'name' : serviceName, 'amount' : serviceAmount})
+			$scope.services.push({'serviceName' : serviceName, 'serviceAmount' : serviceAmount})
 		}
 	}
     
@@ -26,7 +26,7 @@ app.controller('handyController', ['$scope', '$http', '$location', function ($sc
   $scope.saveService = function(evt) {
         console.log(evt);
         console.log($scope.fieldValue);
-        $http.post('/businessservices',{data : [$scope.fieldValue]})
+        $http.post('/businessservices',{data : $scope.services})
 
         .success(function(data) {
             console.log("Services Saved Successfully");

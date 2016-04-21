@@ -10,9 +10,8 @@ var ClientProfile = mongoose.Schema({
     client_add2: String,
     client_city: String,
     client_state: String,
-    client_zip: { type: Number, min: 0, max: 99999 },
-    client_country: String,
-    client_logo: String
+    client_zip: String,
+    client_country: String
     }
 );
 

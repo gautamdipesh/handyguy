@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 // about what customers want. 
 var OrderDetail = mongoose.Schema({
     user_id : String,
-    Service : Array,
+    Services : Array,
     add_service: String,
     add_service_amt: String,
     notes: String,
